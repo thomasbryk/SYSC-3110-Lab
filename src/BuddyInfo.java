@@ -38,4 +38,8 @@ public class BuddyInfo {
 	public void setPhoneNumber (String phoneNumber) {
 		this.phoneNumber=phoneNumber;
 	}
+	
+	public String toString() {
+		return (this.getName() + "  " + this.getHomeAddress() + "  " + this.getPhoneNumber());
+	}
 }
