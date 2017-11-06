@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +24,32 @@ public class AddressBook {
 		return null;
 	}
 	
-	public static void main(String[] args) {
-		BuddyInfo buddy = new BuddyInfo ("Bob", "Carleton", "1234");
-		AddressBook addressBook = new AddressBook();
-		addressBook.addBuddy(buddy);
-		addressBook.removeBuddy(0);
+	public String toString(){
+		String s="";
+		for (BuddyInfo b : this.buddyInfo) {
+			s+=(b.toString() + "\n");
+		}
+		return s;
 	}
+	
+	public void saveAddressBook() {
+		String s = this.toString();
+		BufferedWriter out;
+		try {
+			out = new BufferedWriter(new FileWriter("myFile.txt"));
+			out.write(s);
+			out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		MenuFrame menu = new MenuFrame();
+		
+		}
 
 }
