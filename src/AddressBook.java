@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 public class AddressBook {
 	private List <BuddyInfo> buddyInfo;
 	
@@ -22,6 +24,28 @@ public class AddressBook {
 			return this.buddyInfo.remove(index);
 		}
 		return null;
+	}
+	
+	public boolean removeBuddy (String buddyName) {
+		for (BuddyInfo b : this.buddyInfo) {
+			if (b.getName()==buddyName) {
+				buddyInfo.remove(b);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public String editBuddy(String buddyName) {
+		for (BuddyInfo b : this.buddyInfo) {
+			if (b.getName()==buddyName) {
+				b.setName(JOptionPane.showInputDialog("Name",b.getName()));
+				b.setHomeAddress(JOptionPane.showInputDialog("Home Address",b.getHomeAddress()));
+				b.setPhoneNumber(JOptionPane.showInputDialog("Phone Number",b.getPhoneNumber()));
+				return b.getName();
+			}
+		}
+		return buddyName;
 	}
 	
 	public String toString(){
