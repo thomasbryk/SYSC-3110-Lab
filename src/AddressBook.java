@@ -39,13 +39,19 @@ public class AddressBook {
 	public String editBuddy(String buddyName) {
 		for (BuddyInfo b : this.buddyInfo) {
 			if (b.getName()==buddyName) {
-				b.setName(JOptionPane.showInputDialog("Name",b.getName()));
 				b.setHomeAddress(JOptionPane.showInputDialog("Home Address",b.getHomeAddress()));
 				b.setPhoneNumber(JOptionPane.showInputDialog("Phone Number",b.getPhoneNumber()));
-				return b.getName();
 			}
 		}
 		return buddyName;
+	}
+	
+	public int size() {
+		return buddyInfo.size();
+	}
+	
+	public void clear() {
+		buddyInfo.clear();
 	}
 	
 	public String toString(){
@@ -56,18 +62,19 @@ public class AddressBook {
 		return s;
 	}
 	
-	public void saveAddressBook() {
+	public boolean saveAddressBook() {
 		String s = this.toString();
 		BufferedWriter out;
 		try {
 			out = new BufferedWriter(new FileWriter("myFile.txt"));
 			out.write(s);
 			out.close();
+			return true;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
 		}
-		
 	}
 	
 	public static void main(String[] args) {

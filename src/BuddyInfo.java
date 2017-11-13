@@ -3,17 +3,28 @@ public class BuddyInfo {
 	private String name;
 	private String homeAddress;
 	private String phoneNumber;
+	private int age;
+	
+	public BuddyInfo (String name) {
+		super();
+		this.name = name;
+	}
 	
 	public BuddyInfo (String name, String homeAddress, String phoneNumber) {
 		super();
-		this.name=name;
-		this.homeAddress=homeAddress;
-		this.phoneNumber=phoneNumber;
+		this.name = name;
+		this.homeAddress = homeAddress;
+		this.phoneNumber = phoneNumber;
 	}
 	
-	public static void main (String[] args) {
-		
+	public BuddyInfo (BuddyInfo buddy) {
+		super();
+		setName(buddy.getName());
+		setHomeAddress(buddy.getHomeAddress());
+		setPhoneNumber(buddy.getPhoneNumber());
 	}
+	
+
 	
 	public String getName() {
 		return name;
@@ -37,6 +48,18 @@ public class BuddyInfo {
 	
 	public void setPhoneNumber (String phoneNumber) {
 		this.phoneNumber=phoneNumber;
+	}
+	
+	public int getAge() {
+		return this.age;
+	}
+	
+	public void setAge(int age) {
+		this.age=age;
+	}
+	
+	public boolean isOver18() {
+		return (this.age > 18);
 	}
 	
 	public String toString() {
