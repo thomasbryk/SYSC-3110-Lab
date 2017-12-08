@@ -4,6 +4,14 @@
 		<echo message="Hello from Ant!" />
 	</target>
 	<target name="packaging">
-		<jar destfile="./export/app.jar" basedir="./"/>
+		<manifest file = "MANIFEST.MF">
+			<attribute name = "MainClass" value = "AddressBook"/>
+			<attribute name = "ClassPath" value = "."/>
+		</manifest>
+		<jar destfile = "./export/app.jar" 
+			basedir = "./bin"
+			includes = "*.class"
+			manifest = "MANIFEST.MF"
+		/>
 	</target>
 </project>
