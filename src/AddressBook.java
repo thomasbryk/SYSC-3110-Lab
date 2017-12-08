@@ -57,7 +57,7 @@ public class AddressBook {
 	public String toString(){
 		String s="";
 		for (BuddyInfo b : this.buddyInfo) {
-			s+=(b.toString() + "\n");
+			s += (b.toString() + "\n");
 		}
 		return s;
 	}
@@ -71,7 +71,6 @@ public class AddressBook {
 			out.close();
 			return true;
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -79,7 +78,7 @@ public class AddressBook {
 	
 	public static void main(String[] args) {
 		
-		MenuFrame menu = new MenuFrame();
+		new MenuFrame();
 		
 		}
 

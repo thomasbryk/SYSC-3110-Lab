@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<project name="Hello" default="print message">
+	<target name="print message">
+		<echo message="Hello from Ant!" />
+	</target>
+	<target name="packaging">
+		<jar destfile="./export/app.jar" basedir="./"/>
+	</target>
+</project>

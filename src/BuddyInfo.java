@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class BuddyInfo {
 	private String name;
@@ -63,6 +64,13 @@ public class BuddyInfo {
 	}
 	
 	public String toString() {
-		return (this.getName() + "  " + this.getHomeAddress() + "  " + this.getPhoneNumber());
+		return (this.getName() + "$" + this.getHomeAddress() + "$" + this.getPhoneNumber());
+	}
+	
+	public static BuddyInfo newBuddy(String buddyString) {
+		Scanner sc = new Scanner(buddyString).useDelimiter("$");
+		BuddyInfo buddy = new BuddyInfo(sc.next(), sc.next(), sc.next());
+		sc.close();
+		return buddy;
 	}
 }
